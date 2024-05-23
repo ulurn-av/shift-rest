@@ -6,15 +6,19 @@ class Token(BaseModel):
     token_type: str
 
 
-class UserLogin(BaseModel):
+class UserIn(BaseModel):
     username: str
     password: str
 
 
-class UserOUT(BaseModel):
+class UserOut(BaseModel):
     username: str
     email: str
     name: str
     middle_name: str
     last_name: str
+
+class UserSchema(UserOut):
+    id: int
+    hashed_password: str
     salary_id: int

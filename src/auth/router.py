@@ -6,7 +6,7 @@ from datetime import timedelta
 from src.auth.schemas import Token
 from src.config import ACCESS_TOKEN_EXPIRE_MINUTES
 from src.auth.dependencies import authenticate_user, create_access_token
-from src.auth.schemas import UserLogin
+from src.auth.schemas import UserIn
 
 router = APIRouter(
     prefix="/auth",
@@ -16,8 +16,8 @@ router = APIRouter(
 
 @router.post("/token")
 async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]) -> Token:
-    user_login = UserLogin(username=form_data.username, password=form_data.password)
-    user = await authenticate_user(user_login.username, user_login.password)
+    user_in = UserIn(username=form_data.username, password=form_data.password)
+    user = await authenticate_user(user_in)
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
