@@ -21,4 +21,4 @@ async def get_async_session() -> AsyncGenerator[AsyncSession, None]:
 
 
 if __name__ == '__main__':
-    print(DB_PORT)
+    pass
