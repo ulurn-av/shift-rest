@@ -11,10 +11,10 @@ fastapi = "^0.111.0"
 setuptools = "^69.5.1"
 asyncpg = "^0.29.0"
 python-dotenv = "^1.0.1"
-sqlalchemy = "^2.0.30"
 alembic = "^1.13.1"
 pyjwt = "^2.8.0"
 passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.30"}
 
 
 [build-system]
