@@ -22,3 +22,6 @@ class UserSchema(UserOut):
     id: int
     hashed_password: str
     salary_id: int
+
+    class Config:
+        from_attributes = True
