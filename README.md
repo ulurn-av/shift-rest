@@ -57,14 +57,14 @@ POSTGRES_DB=postgres
 
 ```bash
 docker-compose build
-docker-compose up
+docker-compose up -d
 ```
 
-После этого ваше приложение будет доступно по адресу `http://localhost:8000`.
+После этого приложение будет доступно по адресу `http://0.0.0.0:8000`.
 
 ## Документация API
 
-Документация API доступна по адресу `http://localhost:8000/docs`.
+Документация API доступна по адресу `http://0.0.0.0:8000/docs`.
 Доступно два эндпоинта:
 -  `/auth/login` - аутентификация пользователя. Response: 
 ```json
