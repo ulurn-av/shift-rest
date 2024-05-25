@@ -1,5 +1,5 @@
 from sqlalchemy import ForeignKey
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.database import Base
 
@@ -15,3 +15,4 @@ class User(Base):
     email: Mapped[str] = mapped_column(unique=True)
     hashed_password: Mapped[str]
     salary_id: Mapped[int | None] = mapped_column(ForeignKey("salaries.id", ondelete="SET NULL"), index=True)
+    salary = relationship("Salary", back_populates="users")

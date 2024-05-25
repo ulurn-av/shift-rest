@@ -1,5 +1,7 @@
 from pydantic import BaseModel
 
+from src.salary.schemas import SalaryOut
+
 
 class Token(BaseModel):
     access_token: str
@@ -14,14 +16,19 @@ class UserIn(BaseModel):
 class UserOut(BaseModel):
     username: str
     email: str
-    name: str
-    middle_name: str
-    last_name: str
+    name: str | None
+    middle_name: str | None
+    last_name: str | None
+    salary: SalaryOut
+
+    class Config:
+        from_attributes = True
+
 
 class UserSchema(UserOut):
     id: int
-    hashed_password: str
     salary_id: int
+    hashed_password: str
 
     class Config:
         from_attributes = True
