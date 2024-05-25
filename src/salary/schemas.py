@@ -8,3 +8,10 @@ class SalaryOut(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class SalarySchema(SalaryOut):
+    id: int
+
+    class Config:
+        from_attributes = True

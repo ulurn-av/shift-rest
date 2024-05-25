@@ -1,5 +1,5 @@
 from src.database import Base
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from datetime import date
 
 
@@ -9,3 +9,4 @@ class Salary(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     salary_amount: Mapped[int]
     next_raise_date: Mapped[date]
+    users = relationship("User", back_populates="salary")
